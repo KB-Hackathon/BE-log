@@ -21,7 +21,7 @@ public class KafkaLogListener {
 	private final ObjectMapper objectMapper = new ObjectMapper();
 
 
-	@KafkaListener(topics = "log-module", groupId = "log-consumer-group")
+	@KafkaListener(topics = "log-module", groupId = "log-consumer-group-v2")
 	public void listen(String message, Acknowledgment ack) {
 		try {
 			LogMessage logMessage = objectMapper.readValue(message, LogMessage.class);
@@ -34,7 +34,7 @@ public class KafkaLogListener {
 		}
 	}
 
-	@KafkaListener(topics = "log-retry", groupId = "log-retry-group")
+	@KafkaListener(topics = "log-retry", groupId = "log-retry-group-v2")
 	public void listenRetry(String message, Acknowledgment ack) {
 		try {
 			LogMessage logMessage = objectMapper.readValue(message, LogMessage.class);

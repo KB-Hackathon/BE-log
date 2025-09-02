@@ -26,11 +26,11 @@ public class LogConsumerServiceImpl implements LogConsumerService {
 	private final CloudWatchLogsClient logsClient;
 	private final ObjectMapper objectMapper = new ObjectMapper();
 
-	private static final String LOG_GROUP = "Dolfin";
+	private static final String LOG_GROUP = "chakchak";
 
 	@Override
 	public void loggingIntegration(LogMessage logMessage) throws Exception {
-		String logStream = "dolfin-log-stream";
+		String logStream = "chakchak-log-stream";
 		writeToCloudWatch(logMessage, logStream);
 	}
 
